@@ -31,7 +31,7 @@ defmodule ValidateBST do
 		end
 	end
 
-	defp helper([value, left, right], lower, upper)  do
+	defp helper([value, left, right], lower, upper) do
 		cond do
 		 value not in lower..upper -> false
 		 true -> helper(left, lower , value) and helper(right, value, upper)
