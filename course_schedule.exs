@@ -2,8 +2,6 @@ defmodule CourseSchedule do
 
 	def can_finish(prerrequisites) do
 		{ graph, vertices } = get_graph prerrequisites
-		IO.puts "vertices = #{inspect vertices}"
-		IO.puts "graph = #{inspect graph}"
 		can_finish(graph, vertices)
 	end
 
@@ -32,13 +30,16 @@ defmodule CourseSchedule do
 		look_for_cycle(graph[vertex], MapSet.put(visited, vertex), graph)
 	end
 
-	defp look_for_cycle([], _, _), do: false
-
-	defp look_for_cycle([ neighbour | neighbours], visited, graph) do
-		if MapSet.member?(visited, neighbour) or visit(graph, neighbour, visited) do
-			true
-		else
-			look_for_cycle(neighbours, visited , graph)
+	defp look_for_cycle(neighbours, visited, graph) do
+		case neighbours do
+			[ neighbour | neighbours] ->
+				if MapSet.member?(visited, neighbour) or visit(graph, neighbour, visited) do
+					true
+				else
+					look_for_cycle(neighbours, visited , graph)
+				end
+			_ ->
+				false
 		end
 	end
 
