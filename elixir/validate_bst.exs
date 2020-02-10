@@ -43,7 +43,7 @@ defmodule ValidateBST do
 end
 
 tree_1 = [8, [3, [1, nil, nil], [6, [4, nil, nil], [7, nil, nil]]],
-             [10, nil, [14, [13, nil, nil], nil], nil ]]
+             [10, nil, [14, [13, nil, nil], nil] ]]
 
 tree_2 = [4, [2, [1, nil, nil], [3, nil, nil]], [5, nil, nil]]
 
