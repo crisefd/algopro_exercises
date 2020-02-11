@@ -3,6 +3,7 @@ defmodule QueueReconstruction do
 	def reconstruct(queue) do
 		queue
 		|> sort_queue_by_height()
+		|> IO.inspect() # [{7, 0}, {7, 1}, {6, 1}, {5, 0}, {5, 2}, {4, 4}]
 		|> sort_queue_by_k([])
 	end
 
@@ -21,3 +22,4 @@ end
 
 
 IO.inspect QueueReconstruction.reconstruct [{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}]
+# [{5, 0}, {7, 0}, {5, 2}, {6, 1}, {4, 4}, {7, 1}]
